@@ -23,15 +23,15 @@ int _printf(const char *format, ...)
 		switch (format[i + 1])
 		{
 		case  'c':
-			stdout, print_char(va_arg(args, int));
+			print_char(va_arg(args, int));
 			i++;
 			break;
 		case  's':
-			stdout, print_string(va_arg(args, char *));
+			print_string(va_arg(args, char *));
 			i++;
 			break;
 		case  '%':
-			stdout, print_char('%');
+			print_char('%');
 			i++;
 			break;
 		default:
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 		}
 		}
 		else
-			stdout, print_char(format[i]);
+			print_char(format[i]);
 		i++;
 
 	}
