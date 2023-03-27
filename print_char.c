@@ -1,4 +1,18 @@
 #include "main.h"
+/**
+ *print_num - prints a number
+ *@foo: number input
+ *
+ *Return: Nothing
+ */
+void print_num(int foo)
+{
+	if (foo / 10 != 0)
+	{
+		print_num(foo / 10);
+	}
+	print_char((foo % 10) + '0');
+}
 
 /**
  *print_char - prints a character

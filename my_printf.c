@@ -1,5 +1,5 @@
 #include "main.h"
-
+void print_num(int foo);
 /**
  *_printf - produces output according to format
  *@format: pointer to input
@@ -32,6 +32,14 @@ int _printf(const char *format, ...)
 			break;
 		case  '%':
 			print_char('%');
+			i++;
+			break;
+		case  'd':
+			print_num(va_arg(args, int));
+			i++;
+			break;
+		case  'i':
+			print_num(va_arg(args, int));
 			i++;
 			break;
 		default:
