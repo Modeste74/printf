@@ -6,4 +6,6 @@
 int _printf(const char *format, ...);
 int print_char(char c);
 void print_string(char *s);
+void print_num(int foo);
+
 #endif

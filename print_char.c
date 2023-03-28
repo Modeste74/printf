@@ -31,7 +31,7 @@ int print_char(char c)
  *
  *Return: Void
  */
-int print_string(char *s)
+void print_string(char *s)
 {
 	int n = 0;
 
@@ -40,5 +40,4 @@ int print_string(char *s)
 		print_char(s[n]);
 		n++;
 	}
-	return (n);
 }
