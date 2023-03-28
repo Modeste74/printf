@@ -41,3 +41,26 @@ void print_string(char *s)
 		n++;
 	}
 }
+
+/**
+ *handler_ptr - handles format specifier
+ *@c: character identifier
+ *@list: variadic argument list
+ *
+ *Return: Nothing.
+ */
+void handler_ptr(char c, va_list list)
+{
+	if (c == 's')
+	{
+		print_string(va_arg(list, char *));
+	}
+	if (c == 'c')
+	{
+		print_char(va_arg(list, int));
+	}
+	if (c == 'i' || c == 'd')
+	{
+		print_num(va_arg(list, int));
+	}
+}

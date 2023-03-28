@@ -11,16 +11,16 @@ void format_check(const char format, va_list args)
 {
 	int i;
 
-	fmt print_format[] = {{'c', print_char},
-			      {'s', print_string},
-			      {'d', print_num},
-			      {'i', print_num},
-			      {NULL, NULL}};
-	for (i = 0; print_format[i] != '\0'; i++)
+	fmt print_format[] = {{'c', handler_ptr},
+			      {'s', handler_ptr},
+			      {'d', handler_ptr},
+			      {'i', handler_ptr},
+			      {'\0', '\0'}};
+	for (i = 0; print_format[i].type != '\0'; i++)
 	{
 		if (format == print_format[i].type)
 		{
-			print_format[i].funct(va_arg(args, int *));
+			print_format[i].funct(format, args);
 			break;
 		}
 	}

@@ -13,7 +13,7 @@
 struct Form
 {
 	char type;
-	void (*funct)(va_list);
+	void (*funct)(char, va_list);
 };
 
 typedef struct Form fmt;
@@ -22,5 +22,5 @@ int print_char(char c);
 void print_string(char *s);
 void print_num(int foo);
 void format_check(const char format, va_list args);
-
+void handler_ptr(char c, va_list list);
 #endif
