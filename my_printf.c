@@ -1,5 +1,5 @@
 #include "main.h"
-void print_num(int foo);
+
 /**
  *_printf - produces output according to format
  *@format: pointer to input
@@ -8,49 +8,30 @@ void print_num(int foo);
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i;
 	va_list args;
 
+	va_start(args, format);
 	if (format == NULL)
 	{
-		return (0);
+		return (-1);
 	}
-	va_start(args, format);
-	while (format[i])
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] != '\0' && format[i] != '%')
 		{
-		switch (format[i + 1])
+			print_char(format[i]);
+		}
+		if (format[i] == '%' && format[i + 1] != '%')
 		{
-		case  'c':
-			print_char(va_arg(args, int));
+			format_check(format[i + 1], args);
 			i++;
-			break;
-		case  's':
-			print_string(va_arg(args, char *));
-			i++;
-			break;
-		case  '%':
+		}
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
 			print_char('%');
 			i++;
-			break;
-		case  'd':
-			print_num(va_arg(args, int));
-			i++;
-			break;
-		case  'i':
-			print_num(va_arg(args, int));
-			i++;
-			break;
-		default:
-			i++;
-			continue;
 		}
-		}
-		else
-			print_char(format[i]);
-		i++;
-
 	}
 	va_end(args);
 	return (i);
