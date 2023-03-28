@@ -1,38 +1,23 @@
 #include "main.h"
 
 /**
- *_printf - produces output according to format
- *@format: pointer to input
+ * _printf - function my printf
+ * @format: string whit format to print
  *
- *Return: Zero
+ * Return: number of chars that print
  */
 int _printf(const char *format, ...)
 {
-	int i;
 	va_list args;
+	int length = 0;
+
+	if (format == NULL)
+		return (-1);
 
 	va_start(args, format);
-	if (format == NULL)
-	{
-		return (-1);
-	}
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] != '\0' && format[i] != '%')
-		{
-			print_char(format[i]);
-		}
-		if (format[i] == '%' && format[i + 1] != '%')
-		{
-			format_check(format[i + 1], args);
-			i++;
-		}
-		if (format[i] == '%' && format[i + 1] == '%')
-		{
-			print_char('%');
-			i++;
-		}
-	}
+
+	length = print_format(format, args);
 	va_end(args);
-	return (i);
+
+	return (length);
 }
