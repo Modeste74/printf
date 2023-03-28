@@ -1,5 +1,5 @@
 #include "main.h"
-void print_num(int foo);
+
 /**
  *_printf - produces output according to format
  *@format: pointer to input
