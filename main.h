@@ -1,13 +1,13 @@
-#ifndef  _main_h
-#define _mian_h
+#ifndef _main_h
+#define _main_h
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 
 /**
-  * struct specifiers - Struct specifiers
-  * @specifier: The conversion specifier
+  * struct form - Struct specifiers
+  * @type: The conversion specifier
   * @f: The function pointer
   */
 typedef struct form
