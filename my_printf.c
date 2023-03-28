@@ -32,6 +32,10 @@ int _printf(const char *format, ...)
 			print_char('%');
 			i++;
 		}
+		if (format[i + 1] == '\0')
+		{
+			return (-1);
+		}
 	}
 	va_end(args);
 	return (i);
